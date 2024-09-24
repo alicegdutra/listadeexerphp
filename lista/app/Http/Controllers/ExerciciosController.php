@@ -78,5 +78,63 @@ class ExerciciosController extends Controller
         return $fa;
     }
 
+    public function mostrarExer7(){
+        return view("exer7");
+    }
+
+    public function calcularExer7(Request $request)
+    {
+        $fa = (float)$request->input("fa");
+        $ce = ($fa - 32) * 5 / 9;
+        return $ce;
+    }
+
+    public function mostrarExer8(){
+        return view("exer8");
+    }
+
+    public function calcularExer8(Request $request)
+    {
+        $lar = (float)$request->input("lar");
+        $alt = (float)$request->input("alt");
+
+        $area = $lar * $alt;
+        return $area;
+    }
+
+    public function mostrarExer9(){
+        return view("exer9");
+    }
+
+    public function calcularExer9(Request $request)
+    {
+        $raio = (float) $request->input("raio");
+        $pi = 3.14;
+        return pow($raio, 2) * $pi;
+    }
+
+    public function mostrarExer10(){
+        return view("exer10");
+    }
+
+    public function calcularExer10(Request $request)
+    {
+        $lar = (float)$request->input("lar");
+        $alt = (float)$request->input("alt");
+
+        $perimetro = 2 *($lar + $alt);
+        return $perimetro;
+    }
+
+    public function mostrarExer11(){
+        return view("exer11");
+    }
+
+    public function calcularExer11(Request $request)
+    {
+        $raio = (float) $request->input("raio");
+        $pi = 3.14;
+        return 2 * $pi * $raio;
+    }
     
 }
