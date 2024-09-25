@@ -136,5 +136,48 @@ class ExerciciosController extends Controller
         $pi = 3.14;
         return 2 * $pi * $raio;
     }
+
+    public function mostrarExer12(){
+        return view("exer12");
+    }
+
+    public function calcularExer12(Request $request)
+    {
+        $base = (int) $request->input("base");
+        $exp = (int) $request->input("exp");
+        return pow($base, $exp);
+    }
+
+    public function mostrarExer13(){
+        return view("exer13");
+    }
+
+    public function calcularExer13(Request $request)
+    {
+        $metro = (int) $request->input("metro");
+        return $metro * 100;
+    }
+
+    public function mostrarExer14(){
+        return view("exer14");
+    }
+
+    public function calcularExer14(Request $request)
+    {
+        $km = (float) $request->input("km");
+        $milhas = $km * 0.621371;
+        return $milhas;
+    }
     
+    public function mostrarExer15(){
+        return view("exer15");
+    }
+
+    public function calcularExer15(Request $request)
+    {
+        $peso = (float) $request->input("peso");
+        $altura = (float) $request->input("altura");
+        $imc = $peso / ($altura * $altura);
+        return $imc;
+    }
 }
