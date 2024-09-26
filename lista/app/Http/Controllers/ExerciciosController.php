@@ -180,4 +180,30 @@ class ExerciciosController extends Controller
         $imc = $peso / ($altura * $altura);
         return $imc;
     }
+
+    public function mostrarExer16(){
+        return view("exer16");
+    }
+
+    public function calcularExer16(Request $request)
+    {
+        $preco = (float) $request->input("preco");
+        $percent = (float) $request->input("percent");
+        $desconto = $preco * ($percent / 100);
+        $preco_atual = $preco - $desconto;
+        return number_format($preco_atual, 2, ',', '.');
+    }
+
+    public function mostrarExer17(){
+        return view("exer17");
+    }
+
+    public function calcularExer17(Request $request)
+    {
+        $capital = (float) $request->input("capital");
+        $taxa = (float) $request->input("taxa");
+        $periodo = (float) $request->input("periodo");
+        $juros_simples = $capital * ($taxa / 100) * $periodo;
+        return 'O juros simples corresponde a ' . $juros_simples;
+    }
 }
