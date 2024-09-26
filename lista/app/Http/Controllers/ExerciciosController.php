@@ -206,4 +206,48 @@ class ExerciciosController extends Controller
         $juros_simples = $capital * ($taxa / 100) * $periodo;
         return 'O juros simples corresponde a ' . $juros_simples;
     }
+
+    public function mostrarExer18(){
+        return view("exer18");
+    }
+
+    public function calcularExer18(Request $request)
+    {
+        $capital = (float) $request->input("capital");
+        $taxa = (float) $request->input("taxa");
+        $periodo = (float) $request->input("periodo");
+        $montante = $capital * pow((1 + $taxa), $periodo);
+        return 'O montante com juros compostos corresponde a ' . $montante;
+    }
+
+    public function mostrarExer19(){
+        return view("exer19");
+    }
+
+    public function calcularExer19(Request $request)
+    {
+        $dias = (int) $request->input("dias");
+        $horas = $dias * 24;
+        $minutos = $dias * 24 * 60;
+        $segundos = $dias * 24 * 60 * 60;
+
+        return "Dias: $dias, Horas: $horas, Minutos: $minutos, Segundos: $segundos";
+    }
+
+    public function mostrarExer20(){
+        return view("exer20");
+    }
+
+    public function calcularExer20(Request $request)
+    {
+        $dist = (float) $request->input("dist");
+        $tempo = (float) $request->input("tempo");
+    
+        if ($tempo > 0) {
+            $velocidade_media = $dist / $tempo;
+            return "A velocidade média é de " . $velocidade_media . " unidades de distância por unidade de tempo.";
+        } else {
+            return "O tempo deve ser maior que zero.";
+        }
+    }
 }
